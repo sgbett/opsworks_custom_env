@@ -1,6 +1,6 @@
 node[:deploy].each do |application, deploy|
 
-  execute "restart Rails app #{application} for custom env" do
+  execute "restart rails app #{application} for custom env" do
     cwd deploy[:current_path]
     if node[:opsworks][:rails_stack][:name].eql? "apache_passenger"
       command "touch #{deploy[:deploy_to]}/current/tmp/restart.txt"
